@@ -10,7 +10,10 @@ st.title("Zena's Amazing Athleisure Catalog")
 
 
 # Get the current credentials
-session = get_active_session()
+# session = get_active_session()
+
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 my_dataframe = session.table("ZENAS_ATHLEISURE_DB.PRODUCTS.catalog_for_website").select(col('Color_or_Style'),
                                                                                        col('price'),
